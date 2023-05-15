@@ -22,6 +22,11 @@ def preprocess_image(image):
     img = np.array(img_resized)
     return img
 
+@app.route('/')
+def home():
+    return "hello"
+
+
 # Define the API endpoint for receiving image uploads
 @app.route('/predict', methods=['POST'])
 def predict():
