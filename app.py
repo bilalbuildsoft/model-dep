@@ -3,10 +3,9 @@ import tensorflow as tf
 # import cv2
 import numpy as np
 from PIL import Image
-from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
-cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 # Load the trained machine learning model
 model = tf.keras.models.load_model('N_CAT-Model')
@@ -38,9 +37,6 @@ def predict():
     print("Pred: ",prediction)
   
     response = {'result': int(prediction[0])}
-
-
-    # Return the response to the client
     return jsonify(response)
 
 if __name__ == '__main__':
